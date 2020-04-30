@@ -1,9 +1,9 @@
 /*
  * jQuery animateElement plugin
- * require Animate.css https://daneden.github.io/animate.css/
- * or other CSS keyframe animation
+ * require CSS keyframe animation
+ * example on https://github.com/ciekals11/AnimateElement
  *
- * Author: Kamil Ciekalski
+ * Author: Kamil 'ciekals11' Ciekalski
  * Version: 0.1.0
  */
 (function($) {
