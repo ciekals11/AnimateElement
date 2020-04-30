@@ -3,8 +3,7 @@
  * require Animate.css https://daneden.github.io/animate.css/
  * or other CSS keyframe animation
  *
- * Copyright (c) 2020 MediaEssence
- *
+ * Author: Kamil Ciekalski
  * Version: 0.1.0
  */
 (function($) {
