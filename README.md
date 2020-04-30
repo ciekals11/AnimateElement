@@ -3,6 +3,7 @@
 ## Usage
 
 Include Animate.js
+
 It requires jQuery ^3.4 and CSS KeyFrame Animation
 ```javascript
   $('.element').animateElement(animationClass, timeout, callback);
