@@ -1,4 +1,13 @@
-(function($){
+/*
+ * jQuery animateElement plugin
+ * require Animate.css https://daneden.github.io/animate.css/
+ * or other CSS keyframe animation
+ *
+ * Copyright (c) 2020 MediaEssence
+ *
+ * Version: 0.1.0
+ */
+(function($) {
     $.fn.extend({
         /**
          * Plugin name: AnimateElement
@@ -11,14 +20,14 @@
             let defaults = {
                 animationStyle: 'slideInUp',
                 timeout: 0,
-                callback: function(){}
+                callback: function() {}
             };
 
             let options = {
                 element: this
             };
 
-            if (typeof animationStyle != 'string' ) {
+            if (typeof animationStyle != 'string') {
                 if (animationStyle == null) {
                     options.animationStyle = defaults.animationStyle;
                 } else {
@@ -28,7 +37,7 @@
                 options.animationStyle = animationStyle;
             }
 
-            if (typeof timeout != 'number' ) {
+            if (typeof timeout != 'number') {
                 if (timeout == null) {
                     options.timeout = defaults.timeout;
                 } else {
@@ -38,7 +47,7 @@
                 options.timeout = timeout;
             }
 
-            if (typeof callback != 'function' ) {
+            if (typeof callback != 'function') {
                 if (callback == null) {
                     options.callback = defaults.callback;
                 } else {
@@ -51,16 +60,16 @@
             let animate = function() {
                 let delay = 0;
 
-                window.setTimeout(function(){
+                window.setTimeout(function() {
                     delay = performAnimation(delay);
 
                     if (delay === 0) {
                         delay = 1000;
                     }
 
-                    window.setTimeout(function(){
-                        reset();
+                    window.setTimeout(function() {
                         options.callback();
+                        reset();
                     }, delay + 1000);
 
                 }, options.timeout);
@@ -69,7 +78,7 @@
             };
 
             let reset = function() {
-                options.element.each(function(){
+                options.element.each(function() {
                     if ($(this).hasClass('animated')) {
                         $(this).removeClass('animated').removeClass(options.animationStyle);
                     }
@@ -77,10 +86,10 @@
             };
 
             let performAnimation = function(delay) {
-                options.element.each(function(){
+                options.element.each(function() {
                     delay += 200;
                     $(this).css({
-                        'animation-delay': (delay/1000) + 's'
+                        'animation-delay': (delay / 1000) + 's'
                     }).addClass('animated').addClass(options.animationStyle);
                 });
 
