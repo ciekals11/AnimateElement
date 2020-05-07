@@ -4,7 +4,7 @@
  * example on https://github.com/ciekals11/AnimateElement
  *
  * Author: Kamil 'ciekals11' Ciekalski
- * Version: 0.1.0
+ * Version: 0.1.1
  */
 (function($) {
     $.fn.extend({
@@ -79,7 +79,7 @@
             };
 
             let reset = function() {
-                options.element.each(function() {
+                options.contentContainer.each(function() {
                     if ($(this).hasClass('animated')) {
                         $(this).removeClass('animated').removeClass(options.animationStyle);
                     }
@@ -87,10 +87,12 @@
             };
 
             let performAnimation = function(delay) {
-                options.element.each(function() {
+                options.contentContainer.each(function() {
                     delay += 200;
-                    $(this).find('.animation-container').css({
-                        'animation-delay': (delay / 1000) + 's'
+                    $(this).css({
+                        'animation-delay': (delay / 1000) + 's',
+        				'animation-duration': '1s',
+        				'animation-fill-mode': 'both'
                     }).addClass('animated').addClass(options.animationStyle);
                 });
 
@@ -104,6 +106,8 @@
 
                 contentContainer.append(content);
                 options.element.html(contentContainer);
+
+                options.contentContainer = contentContainer;
             }
 
             animate();
