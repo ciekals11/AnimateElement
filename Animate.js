@@ -59,6 +59,8 @@
             let animate = function() {
                 let delay = 0;
 
+                prepareContainer();
+
                 window.setTimeout(function() {
                     delay = performAnimation(delay);
 
@@ -87,13 +89,22 @@
             let performAnimation = function(delay) {
                 options.element.each(function() {
                     delay += 200;
-                    $(this).css({
+                    $(this).find('.animation-container').css({
                         'animation-delay': (delay / 1000) + 's'
                     }).addClass('animated').addClass(options.animationStyle);
                 });
 
                 return delay;
             };
+
+            let prepareContainer = function() {
+                options.element.css('overflow', 'hidden');
+                let content = options.element.html();
+                let contentContainer = $('<div class="animation-container"></div>');
+
+                contentContainer.append(content);
+                options.element.html(contentContainer);
+            }
 
             animate();
         }
