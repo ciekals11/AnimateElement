@@ -6,7 +6,7 @@ Include Animate.js
 
 It requires jQuery ^3.4 and CSS KeyFrame Animation.
 
-Can work with [Animate.css](https://daneden.github.io/animate.css/)
+Works with [Animate.css](https://daneden.github.io/animate.css/)
 
 ```javascript
   $('.element').animateElement(animationClass, timeout, callback);
