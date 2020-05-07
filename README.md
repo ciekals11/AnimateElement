@@ -9,6 +9,12 @@ It requires jQuery ^3.4 and CSS KeyFrame Animation
   $('.element').animateElement(animationClass, timeout, callback);
 ```
 
+| Property         | Type            | Default         |
+| ---------------- |:---------------:| ---------------:|
+| `animationStyle` | `string/null`   | 'slideInUp'     |
+| `timeout`        | `number/null`   | 0               |
+| `callback`       | `function`      | `function() {}` |
+
 ## Example
 
 CSS
